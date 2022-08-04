@@ -151,7 +151,7 @@ export const useDnDSort = <T>(defaultItems: T[]): DnDSortResult<T>[] => {
           state.dndItems[itemIndex] = { key, value, position, element };
         },
 
-        onMouseDown: (event: React.MouseEvent<HTMLElement>) => {
+        onPointerDown: (event: React.PointerEvent<HTMLElement>) => {
           // ドラッグする要素
           const element = event.currentTarget;
 
@@ -170,8 +170,8 @@ export const useDnDSort = <T>(defaultItems: T[]): DnDSortResult<T>[] => {
           state.dragElement = { key, value, element, position };
 
           // mousemove, mouseupイベントをwindowに登録する
-          window.addEventListener("mouseup", onMouseUp);
-          window.addEventListener("mousemove", onMouseMove);
+          window.addEventListener("pointerup", onMouseUp);
+          window.addEventListener("pointermove", onMouseMove);
         },
       },
     };
